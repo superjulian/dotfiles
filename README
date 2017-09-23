@@ -1,0 +1,4 @@
+list of files
+Filename |	 Symlink path 	| Desciption
+init.vim | ~/.config/nvim/ 	| rc for neovim
+

@@ -1,0 +1,33 @@
+quick-launch can start the following programs:
+
+PROGRAM			KEY		
+
+Chromium		c	
+
+Spotify			s		
+
+Steam			Shift + S	
+
+Nautilus (file viewer)	f
+
+Gooogle Calender	a
+
+Facebook Messenger	m		
+
+Might Text		t
+
+Gmail			g
+
+Gooogle Drive		d
+
+reboot wifi		r
+
+wifi-menu		w
+
+edit i3 config		e
+
+toggle tabbing		Tab
+
+show this message	h
+
+To exit quick launch mode press esc or enter

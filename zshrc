@@ -32,7 +32,7 @@ HYPHEN_INSENSITIVE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -69,6 +69,10 @@ source $ZSH/oh-my-zsh.sh
    export EDITOR='nvim'
  fi
 
+#path Stuff
+ export GUROBI_HOME="/opt/gurobi751/linux64" 
+ export PATH="${PATH}:${GUROBI_HOME}/bin:/home/julian/.gem/ruby/2.5.0/bin" 
+ export LD_LIBRARY_PATH="${GUROBI_HOME}/lib"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -83,3 +87,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+eval $(thefuck --alias)

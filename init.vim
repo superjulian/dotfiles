@@ -19,6 +19,9 @@ Plug 'morhetz/gruvbox'
 "auto completer
 Plug 'Valloric/YouCompleteMe'
 
+"file exlporer
+Plug 'scrooloose/nerdtree'
+
 call plug#end()
 
 "visual stuff
@@ -32,6 +35,8 @@ color gruvbox
 "line numbers
 set number
 
+"soft tabbing
+set expandtab shiftwidth=4 softtabstop=4 smarttab
 
 " Relative numbering
 function! NumberToggle()
@@ -102,6 +107,8 @@ nnoremap <A-l> <C-w>l
 " Use ; for commands.
 nnoremap ; :
 
+"open Nerd tree
+map <C-n> :NERDTreeToggle<CR>
 
 "search stuff
 " Use <C-L> to clear the highlighting of :set hlsearch.
@@ -119,3 +126,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "save folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
+
+"auto open nerdtree with 
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif

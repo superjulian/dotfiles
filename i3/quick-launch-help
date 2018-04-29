@@ -4,7 +4,9 @@ PROGRAM			KEY
 
 Chromium		c	
 
-Spotify			s		
+SSH			s		
+
+Switch Windows		Tab
 
 Steam			Shift + S	
 
@@ -25,8 +27,6 @@ reboot wifi		r
 wifi-menu		w
 
 edit i3 config		e
-
-toggle tabbing		Tab
 
 show this message	h
 

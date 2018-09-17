@@ -17,8 +17,8 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'morhetz/gruvbox'
 
 "auto completer
-Plug 'Valloric/YouCompleteMe'
-
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-jedi'
 "file exlporer
 Plug 'scrooloose/nerdtree'
 
@@ -31,6 +31,12 @@ set termguicolors
 "set up color scheme
 set background=dark
 color gruvbox
+
+"Auto complete settings (deoplete)
+let g:deoplete#enable_at_startup = 1
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "line numbers
 set number
@@ -116,12 +122,8 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 endif
 
-" Search and Replace
+" Search and Replace, find and replace
 nmap <Leader>s :%s//g<Left><Left>
-
-"you complete me preview window autoclose
-let g:ycm_autoclose_preview_window_after_completion = 1
-
 
 "save folds
 autocmd BufWinLeave *.* mkview

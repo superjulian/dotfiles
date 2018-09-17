@@ -35,6 +35,9 @@ exec --no-startup-id feh --bg-max ~/Pictures/el_lissitzky_background.jpg
 #start music player daemon
 exec --no-startup-id mpd
 
+#start connman gui front end
+#exec --no-startup-id cmst
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -193,15 +196,16 @@ mode "quick launch" {
 	bindsym Shift+S exec steam, mode "default"
 	bindsym f exec nautilus, mode "default"
 	bindsym p exec terminator -r "music" -e 'ncmpcpp' , mode "default"
-	bindsym a exec chromium --new-window calendar.google.com, mode "default"
 	bindsym m exec chromium --new-window messenger.com, mode "default"
-	bindsym t exec chromium --new-window mightytext.net/web8/, mode "default"
+	#bindsym M exec chromium --new-window messenger.com messages.android.com groupme.com,mode "default"
+        bindsym t exec chromium --new-window messages.android.com, mode "default"
 	bindsym g exec chromium --new-window gmail.com, mode "default"
 	bindsym d exec chromium --new-window drive.google.com, mode "default"
 	bindsym r exec --no-startup-id sudo wifi-reboot, mode "default"
 	bindsym u exec --no-startup-id sudo usb-tether, mode "default"
 	bindsym w exec --no-startup-id terminator -e 'sudo wifi-menu', mode "default"
 	bindsym n exec terminator -e 'nvim', mode "default"
+	bindsym v exec terminator -e 'nvim', mode "default"
 	bindsym e exec terminator -e 'nvim .config/i3/*', mode "default"
         bindsym h exec --no-startup-id terminator -r "ql-help" -e 'less ~/.config/i3/quick-launch-help'
 	# back to normal: Enter or Escape
@@ -220,8 +224,8 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 3%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Use soft brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 #use soft keys for mpc
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next

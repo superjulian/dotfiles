@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Anonymous Pro 16
+font pango:Anonymous Pro 20
 
 # Before i3 v4.8, we used to recommend this one as the default:
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -43,7 +43,7 @@ exec --no-startup-id mpd
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 #open a dropdown terminal
 bindsym $mod+Shift+T exec --no-startup-id terminator -r dropdown -p dropdown
@@ -236,7 +236,7 @@ bindsym XF86AudioPlay exec mpc toggle
 # finds out, if available)
 bar {
 	position top
-	font pango:Anonymous Pro 11
+	font pango:Anonymous Pro 14
         status_command /home/julian/dotfiles/i3/nowplaying-bar.sh
 	colors
 	{

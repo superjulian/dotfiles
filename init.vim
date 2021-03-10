@@ -11,6 +11,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
+"show indent level
+Plug 'Yggdroot/indentLine'
+
 "color schemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'rakr/vim-two-firewatch'
@@ -133,3 +136,6 @@ autocmd BufWinEnter *.* silent loadview
 "auto open nerdtree with 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" yaml 2 space tabs
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

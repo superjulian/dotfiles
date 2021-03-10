@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Anonymous Pro 12
+font pango:Anonymous Pro 16
 
 # Before i3 v4.8, we used to recommend this one as the default:
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -31,7 +31,8 @@ exec --no-startup-id redshift-gtk
 #start compton (for transparency)
 exec --no-startup-id compton -b
 #set background image
-exec --no-startup-id feh --bg-max ~/Pictures/el_lissitzky_background.jpg
+exec --no-startup-id feh --bg-max ~/Pictures/firewatch-background-2.jpg
+
 #start music player daemon
 exec --no-startup-id mpd
 
@@ -65,7 +66,7 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window unless it is the dropdown terminal
 bindsym $mod+minus scratchpad show
 
-bindsym $mod+Tab exec rofi -show window 
+bindsym $mod+Tab exec rofi -show window -show-icons
 
 #take a screenshot with windows+alt+s
 bindsym $mod+Mod1+s exec scrot '%d-%b-%T-screenshot.png' -e 'mv $f ~/Pictures/screenshots/' 
@@ -75,7 +76,7 @@ bindsym $mod+Mod1+s exec scrot '%d-%b-%T-screenshot.png' -e 'mv $f ~/Pictures/sc
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop  
+bindsym $mod+d exec --no-startup-id /home/julian/.config/rofi/launchers/launcher.sh #i3-dmenu-desktop  
 
 # change focus
 bindsym $mod+Left focus left
@@ -190,17 +191,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "quick launch" {
-	bindsym c exec chromium, mode "default"
-	bindsym Tab exec rofi -show window, mode "default"
-	bindsym s exec rofi -show ssh, mode "default"
+	bindsym c exec firefox, mode "default"
+	bindsym Tab exec rofi -show window -show-icon, mode "default"
+	bindsym s exec scrot '%d-%b-%T-screenshot.png' -e 'mv $f ~/Pictures/screenshots/', mode "default"
 	bindsym Shift+S exec steam, mode "default"
 	bindsym f exec nautilus, mode "default"
-	bindsym p exec terminator -r "music" -e 'ncmpcpp' , mode "default"
-	bindsym m exec chromium --new-window messenger.com, mode "default"
-	#bindsym M exec chromium --new-window messenger.com messages.android.com groupme.com,mode "default"
-        bindsym t exec chromium --new-window messages.android.com, mode "default"
-	bindsym g exec chromium --new-window gmail.com, mode "default"
-	bindsym d exec chromium --new-window drive.google.com, mode "default"
+	bindsym p exec terminator --role=="music" --profile="music" --command=='ncmpcpp', mode "default"
+	bindsym m exec firefox --new-window messenger.com, mode "default"
+	#bindsym M exec firefox --new-window messenger.com messages.android.com groupme.com,mode "default"
+        bindsym t exec firefox --new-window messages.android.com, mode "default"
+	bindsym g exec firefox --new-window gmail.com, mode "default"
+	bindsym d exec firefox --new-window drive.google.com, mode "default"
 	bindsym r exec --no-startup-id sudo wifi-reboot, mode "default"
 	bindsym u exec --no-startup-id sudo usb-tether, mode "default"
 	bindsym w exec --no-startup-id terminator -e 'sudo wifi-menu', mode "default"

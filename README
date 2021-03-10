@@ -1,7 +1,7 @@
 list of files
-Folder/Filename |	 Symlink path 		| Desciption
-init.vim 	| ~/.config/nvim/init.vim 	| config for neovim, requires vim-plugged, and extra installation for ycm
-i3/		| ~/.config/i3/			| folder with i3 config and related docs, requires i3-gaps, compton, feh, scrot, ect.
-compton.conf	| ~/.config/compton.conf	| comton config
-zshrc		| ~/.zshrc			| zsh config, requires oh-my-zsh
-
+Folder/Filename |	 Symlink path 		    | Desciption
+init.vim 	| ~/.config/nvim/init.vim 	    | config for neovim, requires vim-plugged, and extra installation for ycm
+i3/		| ~/.config/i3/			    | folder with i3 config and related docs, requires i3-gaps, compton, feh, scrot, ect.
+compton.conf	| ~/.config/compton.conf	    | comton config
+zshrc		| ~/.zshrc			    | zsh config, requires oh-my-zsh
+alacritty.yml   | ~/.config/alacritty/alacritty.yml | Alacrity (terminal emulator) config

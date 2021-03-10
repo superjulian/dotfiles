@@ -18,7 +18,6 @@ Plug 'morhetz/gruvbox'
 
 "auto completer
 Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-jedi'
 "file exlporer
 Plug 'scrooloose/nerdtree'
 
@@ -34,6 +33,8 @@ color gruvbox
 
 "Auto complete settings (deoplete)
 let g:deoplete#enable_at_startup = 1
+"close preview after autocomplete
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"

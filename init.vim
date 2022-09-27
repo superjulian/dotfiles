@@ -21,6 +21,8 @@ Plug 'morhetz/gruvbox'
 
 "auto completer
 Plug 'Shougo/deoplete.nvim'
+Plug 'deoplete-plugins/deoplete-jedi'
+
 "file exlporer
 Plug 'scrooloose/nerdtree'
 
@@ -130,8 +132,11 @@ endif
 nmap <Leader>s :%s//g<Left><Left>
 
 "save folds
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+augroup remember_folds
+	autocmd!
+	autocmd BufWinLeave * mkview
+	autocmd BufWinEnter * silent! loadview
+augroup END
 
 "auto open nerdtree with 
 autocmd StdinReadPre * let s:std_in=1

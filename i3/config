@@ -26,12 +26,18 @@ font pango:Anonymous Pro 20
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+#start dunst (notification daemon)
+exec --no-startup-id dunst
 #start redshift with tray icon
 exec --no-startup-id redshift-gtk
 #start compton (for transparency)
 exec --no-startup-id compton -b
 #set background image
-exec --no-startup-id feh --bg-max ~/Pictures/firewatch-background-2.jpg
+exec_always --no-startup-id feh --bg-max ~/Pictures/firewatch-background-2.jpg ~/Pictures/firewatch-background-2.jpg
+#set xrander based on connected devices
+#Set new profile up with ARandR gui then save it with autorandr --save <profile name>
+#exec_always autorandr --change
+
 
 #start music player daemon
 exec --no-startup-id mpd
@@ -44,15 +50,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-
-#open a dropdown terminal
-bindsym $mod+Shift+T exec --no-startup-id terminator -r dropdown -p dropdown
-for_window [class="Terminator" window_role="dropdown"] move scratchpad, resize set 1940 600, move absolute position -2 -20, mark "dropdown"
-#make focused terminal a dropdown terminal
-bindsym $mod+Mod1+t [class="Terminator"] floating enable, resize set 1940 600, move absolute position -2 -20, mark "dropdown", move scratchpad
-
-#show dropdown terminal
-bindsym $mod+t [con_mark="dropdown"] scratchpad show
 
 #sticky a window
 bindsym $mod+Shift+S floating enable, sticky toggle
@@ -220,9 +217,14 @@ for_window [window_role="music"] floating enable
 
 
 # Use soft volume buttons
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 3%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 3%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+ 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +3% && pactl set-sink-mute @DEFAULT_SINK@ false
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3% && pactl set-sink-mute @DEFAULT_SINK@ false
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    #Old alsa equivelent
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 3%+ unmute
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 3%- unmute
+#bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Use soft brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -232,27 +234,32 @@ bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPlay exec mpc toggle
 
+
+##### REPLACED i3 BAR WITH polybar ####
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	position top
-	font pango:Anonymous Pro 14
-        status_command /home/julian/dotfiles/i3/nowplaying-bar.sh
-	colors
-	{
-        background #232323
-        statusline #DCDCDC
-    	}
-}
+#bar {
+# position top
+#	font pango:Anonymous Pro 14
+#        status_command /home/julian/dotfiles/i3/nowplaying-bar.sh
+#	colors
+#	{
+#        background #232323
+#        statusline #DCDCDC
+#    	}
+#}
 
 
 #Gaps config
  
-gaps inner 7
-gaps outer 0
+gaps inner 10
+gaps outer 5
 smart_gaps on
-for_window [class="^.*"] border pixel 1
-
+smart_borders on
+for_window [class="^.*"] border pixel 2
+# class         border  backgr. text    indicator child_border
+client.focused  #4c7899 #285577 #ffffff #2e9ef4   #ea5d01
 
 
 #Guake
